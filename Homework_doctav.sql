@@ -3,13 +3,6 @@
 
 
 --2. Create a table called Director with following columns: FirstName, LastName, Nationality and Birthdate. Insert 5 rows into it.
-
-DROP TABLE MovieGenre;
-DROP TABLE MovieActor;
-DROP TABLE Movie;
-DROP TABLE Director;
-DROP TABLE Genre;
-
 CREATE TABLE Director (
 	Id int Identity(1,1) PRIMARY KEY,
 	FirstName varchar(30),
