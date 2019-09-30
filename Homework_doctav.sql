@@ -96,7 +96,16 @@ FROM Movie m INNER JOIN Director d ON m.DirectorId=d.Id
 ORDER BY d.LastName ASC, d.BirthDate DESC
 
 --12. Create a stored procedure that will increment the rating by 1 for a given movie id.
+CREATE PROCEDURE [dbo.spMovieRatingIncrement]
+@Id int
+AS
+BEGIN TRANSACTION
+	UPDATE Movie SET Rating = Rating +1 WHERE Id=@Id
+COMMIT TRANSACTION
 
+--here I call the stored procedure for Id=1 and then I display the new dataset
+EXEC [dbo.spMovieRatingIncrement] @Id = 1;
+SELECT * FROM Movie WHERE Id=1
 
 --15. Implement many to many relationship between Movie and Actor
 CREATE TABLE MovieActor (
